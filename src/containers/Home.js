@@ -3,6 +3,7 @@ import "./Home.css";
 import { API } from "aws-amplify"
 import config from '../config'
 import response from '../response'
+import {Col, Row} from 'react-bootstrap'
 
 export default class Home extends Component {
     constructor(props){
@@ -16,8 +17,26 @@ export default class Home extends Component {
     }
 
     renderInstagram = () => {
-        return typeof this.state.response !== 'undefined' && JSON.stringify(this.state.response).toString()
+        console.log(this.state.response)
+        return this.state.response.data.map((value, index) => {
+            return <Row>
+                <Col md={6}> <img onClick={this.popupImage} id={index} alt={value.caption.text.substr(0,40)}  src={value.images.low_resolution.url} /></Col>
+                <Col md={6}> {value.caption.text} </Col>
+                <hr/>
+            </Row>
+        })
     };
+
+    popupImage = event => {
+        event.preventDefault();
+        console.log(event.target);
+        event.target.src =
+            event.target.src === this.state.response.data[event.target.id].images.standard_resolution.url ?
+                this.state.response.data[event.target.id].images.low_resolution.url
+    :
+            this.state.response.data[event.target.id].images.standard_resolution.url;
+        return console.log(this.state.response.data[event.target.id].images.standard_resolution.url)
+    }
 
     getInstagram = async () => {
         this.setState({ isLoading: true });
@@ -27,23 +46,23 @@ export default class Home extends Component {
                queryStringParameters: {"access_token":config.instagram.accessToken}
             });
             this.setState({ isLoading: false, response: response });
-           console.log(response)
+           console.log(response);
         } catch (e) {
             console.log(e);
             console.log(e.message);
             console.log(e.body);
             this.setState({ isLoading: false });
         }
-    }
+    };
 
     render() {
         return (
             <div className="Home">
                 <div className="lander">
                     { this.state.isLoading && <h1>Loading Instagram</h1> }
-                    { this.renderInstagram()}
+                    { !this.state.isLoading && this.renderInstagram()}
                 </div>
             </div>
         );
-    }
+    };
 }
