@@ -2,18 +2,24 @@ import React, { Component } from "react";
 import "./Home.css";
 import { API } from "aws-amplify"
 import config from '../config'
+import response from '../response'
 
 export default class Home extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-            isLoading: true
-        }
-        this.renderInstagram();
+            isLoading: true,
+            response
+        };
+        this.getInstagram();
     }
 
-    renderInstagram = async () => {
+    renderInstagram = () => {
+        return typeof this.state.response !== 'undefined' && JSON.stringify(this.state.response).toString()
+    };
+
+    getInstagram = async () => {
         this.setState({ isLoading: true });
 
         try {
@@ -23,9 +29,9 @@ export default class Home extends Component {
             this.setState({ isLoading: false, response: response });
            console.log(response)
         } catch (e) {
-            console.log(e)
-            console.log(e.message)
-            console.log(e.body)
+            console.log(e);
+            console.log(e.message);
+            console.log(e.body);
             this.setState({ isLoading: false });
         }
     }
@@ -35,7 +41,7 @@ export default class Home extends Component {
             <div className="Home">
                 <div className="lander">
                     { this.state.isLoading && <h1>Loading Instagram</h1> }
-                    { typeof this.state.response !== 'undefined' && JSON.stringify(this.state.response).toString()}
+                    { this.renderInstagram()}
                 </div>
             </div>
         );
