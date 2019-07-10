@@ -3,16 +3,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import './Config.js'
+import config from './config.js'
 import Amplify from "aws-amplify";
 
 Amplify.configure({
     API: {
         endpoints: [
             {
-                name: "notes",
-                endpoint: config.apiGateway.URL,
-                region: config.apiGateway.REGION
+                name: "instagram",
+                endpoint: config.instagram.endpoint,
+                accessToken: config.instagram.accessToken
             },
         ]
     }
