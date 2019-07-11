@@ -13,11 +13,12 @@ export default class Home extends Component {
             isLoading: true,
             response
         };
+
         this.getInstagram();
     }
 
     renderInstagram = () => {
-        console.log(this.state.response)
+        console.log(this.state.response);
         return this.state.response.data.map((value, index) => {
             return <Row>
                 <Col md={6}> <img onClick={this.popupImage} id={index} alt={value.caption.text.substr(0,40)}  src={value.images.low_resolution.url} /></Col>
