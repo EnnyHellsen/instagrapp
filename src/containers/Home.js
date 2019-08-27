@@ -19,17 +19,22 @@ export default class Home extends Component {
   }
 
   renderInstagram = () => {
-    console.log(this.state.response);
     return this.state.response.data.map((value, index) => {
+
+      let instagramText = value.caption.text;
+      let position = instagramText.search(/#/i);
+      position > 150 ? position = 150 : null;
+      let finalString = instagramText.slice(0, position);
+
       return (
-        <InstagramItem className="insta-div">
+        <InstagramItem className="insta-div" key={value.id}>
           <img
             onClick={this.popupImage}
             id={index}
             alt={value.caption.text.substr(0, 40)}
             src={value.images.low_resolution.url}
           />
-          <p> {value.caption.text} </p>
+          <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
         </InstagramItem >
       );
     });
