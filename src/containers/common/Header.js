@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import "./Header.css";
 
 export default ({ extra, ...props }) => {
   return (
-    <div className="Header" {...props}>
-      <Link to="/"> Hemma </Link>
-      <Link to="/test"> Borta </Link>
+    <div className="header" {...props}>
+      <Link to="/test"> Testsida </Link>
+      <Link to="/"> HOME(icon) </Link>
       <Link to={extra}> {extra} </Link>
     </div>
   );

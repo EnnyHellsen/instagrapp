@@ -5,6 +5,7 @@ import config from "../config";
 import response from "../response";
 import { Col, Row } from "react-bootstrap";
 import InstagramItem from "../components/InstagramItem";
+import "./Home";
 
 export default class Home extends Component {
   constructor(props) {
