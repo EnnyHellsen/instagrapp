@@ -1,7 +1,5 @@
 import React from "react";
 
-export default (InstagramItem = () => (
-  <div>
-    <p> hej hje hejh hej </p>
-  </div>
-));
+export default ({ item, children, ...props }) => {
+  return <div {...props}>{children}</div>;
+};

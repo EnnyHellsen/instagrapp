@@ -21,19 +21,15 @@ export default class Home extends Component {
     console.log(this.state.response);
     return this.state.response.data.map((value, index) => {
       return (
-        <Row>
-          <Col md={6}>
-            {" "}
-            <img
-              onClick={this.popupImage}
-              id={index}
-              alt={value.caption.text.substr(0, 40)}
-              src={value.images.low_resolution.url}
-            />
-          </Col>
-          <Col md={6}> {value.caption.text} </Col>
-          <hr />
-        </Row>
+        <InstagramItem className="insta-div">
+          <img
+            onClick={this.popupImage}
+            id={index}
+            alt={value.caption.text.substr(0, 40)}
+            src={value.images.low_resolution.url}
+          />
+          <p> {value.caption.text} </p>
+        </InstagramItem >
       );
     });
   };
@@ -43,10 +39,10 @@ export default class Home extends Component {
     console.log(event.target);
     event.target.src =
       event.target.src ===
-      this.state.response.data[event.target.id].images.standard_resolution.url
+        this.state.response.data[event.target.id].images.standard_resolution.url
         ? this.state.response.data[event.target.id].images.low_resolution.url
         : this.state.response.data[event.target.id].images.standard_resolution
-            .url;
+          .url;
     return console.log(
       this.state.response.data[event.target.id].images.standard_resolution.url
     );
@@ -76,7 +72,6 @@ export default class Home extends Component {
           {this.state.isLoading && <h1>Loading Instagram</h1>}
           {!this.state.isLoading && this.renderInstagram()}
         </div>
-        <InstagramItem />
       </div>
     );
   }
