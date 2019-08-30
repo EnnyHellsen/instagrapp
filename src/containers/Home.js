@@ -5,7 +5,6 @@ import config from "../config";
 import response from "../response";
 import { Col, Row } from "react-bootstrap";
 import InstagramItem from "../components/InstagramItem";
-import "./Home";
 
 export default class Home extends Component {
   constructor(props) {
@@ -26,17 +25,21 @@ export default class Home extends Component {
       position > 150 ? position = 150 : null;
       let finalString = instagramText.slice(0, position);
 
-      return (
-        <InstagramItem className="insta-div" key={value.id}>
-          <img
-            onClick={this.popupImage}
-            id={index}
-            alt={value.caption.text.substr(0, 40)}
-            src={value.images.low_resolution.url}
-          />
-          <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
-        </InstagramItem >
-      );
+      if (value.tags.indexOf("silversmed") > -1) {
+        return (
+          <InstagramItem className="insta-div" key={value.id}>
+            <img
+              onClick={this.popupImage}
+              id={index}
+              alt={value.caption.text.substr(0, 40)}
+              src={value.images.low_resolution.url}
+            />
+            <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
+          </InstagramItem >
+        )
+      } else {
+        return false
+      }
     });
   };
 
@@ -75,7 +78,7 @@ export default class Home extends Component {
     return (
       <div className="Home">
         <div className="lander">
-          {this.state.isLoading && <h1>Loading Instagram</h1>}
+          {this.state.isLoading && <h1>Loading content..</h1>}
           {!this.state.isLoading && this.renderInstagram()}
         </div>
       </div>
