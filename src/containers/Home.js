@@ -5,6 +5,7 @@ import config from "../config";
 import response from "../response";
 import { Col, Row } from "react-bootstrap";
 import InstagramItem from "../components/InstagramItem";
+import Hero from "../components/Hero";
 
 export default class Home extends Component {
   constructor(props) {
@@ -75,13 +76,19 @@ export default class Home extends Component {
   };
 
   render() {
+
+    let image = this.state.response.data[11].images.standard_resolution.url;
+
     return (
-      <div className="Home">
-        <div className="lander">
-          {this.state.isLoading && <h1>Loading content..</h1>}
-          {!this.state.isLoading && this.renderInstagram()}
+      <React.Fragment>
+        <Hero image={image} />
+        <div className="Home">
+          <div className="lander">
+            {this.state.isLoading && <h1>Loading content..</h1>}
+            {!this.state.isLoading && this.renderInstagram()}
+          </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
