@@ -1,12 +1,12 @@
 import React from "react";
-import "./Hero";
+import "./Hero.css";
 
 function Hero({ image }) {
     return (
         <div className="hero">
-            <img src={image} />
-            <h1> Title </h1>
-            <h4> Subtitle </h4>
+            <h1> Nora Hellsén Jewellery </h1>
+            <h4> Silversmed </h4>
+            <p> chevron  </p>
         </div>
     )
 }

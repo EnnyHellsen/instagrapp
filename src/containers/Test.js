@@ -3,10 +3,10 @@ import "./Home.css";
 import { API } from "aws-amplify"
 import config from '../config'
 import response from '../response'
-import {Col, Row} from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 
 export default class Test extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
     }

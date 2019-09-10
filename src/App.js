@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     // Share these to all pages
     const childProps = {
-      name: "Nora Hellsen" // Ex
+      name: "Om mig" // Ex
     };
 
     return (

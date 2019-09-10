@@ -26,14 +26,14 @@ export default class Home extends Component {
       position > 150 ? position = 150 : null;
       let finalString = instagramText.slice(0, position);
 
-      if (value.tags.indexOf("silversmed") > -1) {
+      if (value.tags.indexOf("norahellsen") > -1) {
         return (
-          <InstagramItem className="insta-div" key={value.id}>
-            <img
+          <InstagramItem key={value.id}>
+            <img className="instagram-image"
               onClick={this.popupImage}
               id={index}
               alt={value.caption.text.substr(0, 40)}
-              src={value.images.low_resolution.url}
+              src={value.images.standard_resolution.url}
             />
             <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
           </InstagramItem >
@@ -62,7 +62,7 @@ export default class Home extends Component {
     this.setState({ isLoading: true });
 
     try {
-      const response = await API.get("instagram", "media/recent/", {
+      const response = await API.get("instagram", "media/recent?max_id=2092130121568933544_7165710768", {
         queryStringParameters: { access_token: config.instagram.accessToken }
       });
       this.setState({ isLoading: false, response: response });
@@ -77,7 +77,7 @@ export default class Home extends Component {
 
   render() {
 
-    let image = this.state.response.data[11].images.standard_resolution.url;
+    let image = this.state.response.data[18].images.standard_resolution.url;
 
     return (
       <React.Fragment>

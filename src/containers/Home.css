@@ -4,13 +4,21 @@
     grid-gap: 10px;
     padding: 10rem 0;
     text-align: center;
+    width: 100%;
 }
 
 .Home .lander h1 {
     font-family: "Open Sans", sans-serif;
-    font-weight: 600;
+    font-weight: 200;
+    text-align: center;
+    color:black;
+    grid-column: 2 / 3;
 }
 
 .Home .lander p {
-    color:#999;
+    color: black;
+}
+
+.instagram-image {
+    width: 80%;
 }
