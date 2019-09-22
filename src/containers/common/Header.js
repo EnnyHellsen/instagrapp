@@ -10,7 +10,7 @@ export default ({ extra, ...props }) => {
       <Link to="/">
         <img className="logo" src={logo} />
       </Link>
-      <Link to={extra}> {extra} </Link>
+      <Link to="/om-mig"> Om mig </Link>
     </div>
   );
 };
