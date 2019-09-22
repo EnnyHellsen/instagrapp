@@ -6,7 +6,7 @@ import logo from './nora_logga.png'
 export default ({ extra, ...props }) => {
   return (
     <div className="header" {...props}>
-      <Link to="/test"> Testsida </Link>
+      <Link to="/kontakt"> Kontakt </Link>
       <Link to="/">
         <img className="logo" src={logo} />
       </Link>
