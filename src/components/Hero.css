@@ -21,6 +21,8 @@
 
 .hero h1, .hero h4, .hero p {
     color: black;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 200;
 }
 .hero img {
     height: 4rem;

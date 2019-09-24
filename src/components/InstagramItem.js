@@ -22,7 +22,9 @@ const InstagramItem = ({ data }) => {
                 alt={item.caption.text.substr(0, 40)}
                 src={item.images.standard_resolution.url}
               />
-              <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
+              <div className="instagram-text-container">
+                <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
+              </div>
             </div>
           )
         } else {
