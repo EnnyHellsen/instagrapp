@@ -1,0 +1,22 @@
+.instagram-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 10rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.instagram-item {
+    color: black;
+}
+
+.instagram-image {
+    width: 80%;
+} 
+
+@media only screen and (min-width: 700px) {
+    .instagram-container {
+        grid-template-columns: 1fr 1fr;
+  }
+}
