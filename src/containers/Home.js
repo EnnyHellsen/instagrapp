@@ -12,9 +12,11 @@ export default class Home extends Component {
 
     this.state = {
       isLoading: true,
-      response
+      response,
+      scrollTop: 0,
+      activePos: false,
     };
-    this.getInstagram();
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   getInstagram = async () => {
@@ -30,10 +32,31 @@ export default class Home extends Component {
     }
   }
 
+  handleScroll(event) {
+    const prevState = this.state.scrollTop;
+    this.setState({ scrollTop: event.srcElement.scrollingElement.scrollTop });
+    const currentState = this.state.scrollTop;
+
+    if (prevState < currentState) {
+      this.setState({ activePos: true })
+    } else if (prevState > currentState) {
+      this.setState({ activePos: false })
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+    this.getInstagram();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Hero />
+        <Hero activePos={this.state.activePos} />
         <div className="Home">
           <div className="lander">
             {this.state.isLoading && <h1>Loading content..</h1>}
