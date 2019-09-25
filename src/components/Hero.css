@@ -11,12 +11,12 @@
 .hero h1 {
     font-size: 7rem;
     padding-top: 20vh;
-    transition: all 0.3s;
+    transition: all 1s;
 }
 
 .hero .active {
-    font-size: 5rem;
-    transition: all 0.3s;
+    color: rgba(0, 0, 0, 0);
+    transition: all 0.2s;
 }
 
 .hero h1, .hero h4, .hero p {
