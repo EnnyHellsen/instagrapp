@@ -4,7 +4,7 @@ import './InstagramItem.css';
 const InstagramItem = ({ data }) => {
 
   return (
-    <div className="instagram-container">
+    <div className="instagram-container" id="start">
       {data.map(item => {
 
         let instagramText = item.caption.text;
