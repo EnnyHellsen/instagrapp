@@ -2,10 +2,9 @@ import React from "react";
 import './InstagramItem.css';
 
 const InstagramItem = ({ data }) => {
-
   return (
     <div className="instagram-container" id="start">
-      {data.map(item => {
+      {data.map((item, index) => {
 
         let instagramText = item.caption.text;
         let position = instagramText.search(/#/i);
