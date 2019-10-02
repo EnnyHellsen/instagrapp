@@ -42,16 +42,21 @@ export default class Home extends Component {
   }
 
   getMoreImages = async () => {
-    try {
-      const newResponse = await API.get("instagram", 'media/recent/?next_url=https://api.instagram.com/v1/users/7165710768/media/recent?next_url=&max_id=2029720840606920844_7165710768', {
-        queryStringParameters: { access_token: config.instagram.accessToken }
-      });
-      this.setState({
-        response: [...this.state.response, ...newResponse.data],
-        nextUrl: newResponse.pagination.next_url,
-      });
-    } catch (e) {
-      console.log('error', e);
+    const nextUrl = this.state.nextUrl;
+    if (nextUrl != "") {
+      try {
+        const newResponse = await API.get("instagram", `media/recent/?next_url=${nextUrl}`, {
+          queryStringParameters: { access_token: config.instagram.accessToken }
+        });
+        if (newResponse.pagination.next_url) {
+          this.setState({
+            response: [...this.state.response, ...newResponse.data],
+            nextUrl: newResponse.pagination.next_url,
+          });
+        }
+      } catch (e) {
+        console.log('error', e);
+      }
     }
   }
 
@@ -71,17 +76,15 @@ export default class Home extends Component {
     window.addEventListener("scroll", this.handleScroll);
     this.getInstagram();
 
-    const callback = entry => {
-      console.log(entry);
+    const handleIntersectionObserver = entry => {
       entry[0].isIntersecting ? this.getMoreImages() : null;
-    };
-
-    const observer = new IntersectionObserver(callback, {
+    }
+    const observer = new IntersectionObserver(handleIntersectionObserver, {
       root: null,
       threshold: 0.1,
     });
 
-    let target = this.myRef.current;
+    const target = this.myRef.current;
     observer.observe(target);
   }
 
