@@ -38,4 +38,8 @@
     .instagram-container {
         grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .img-on-hover {
+    filter: brightness(60%);
+  }
 }

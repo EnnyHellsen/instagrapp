@@ -2,9 +2,17 @@ import React from "react";
 import './InstagramItem.css';
 
 const InstagramItem = ({ data }) => {
+
+  const handleMouseEnter = event => {
+    event.currentTarget.classList.add('img-on-hover');
+  }
+  const handleMouseLeave = event => {
+    event.currentTarget.classList.remove('img-on-hover');
+  }
+
   return (
     <div className="instagram-container" id="start">
-      {data.map((item, index) => {
+      {data.map(item => {
 
         let instagramText = item.caption.text;
         let position = instagramText.search(/#/i);
@@ -20,6 +28,8 @@ const InstagramItem = ({ data }) => {
                 className="instagram-image"
                 alt={item.caption.text.substr(0, 40)}
                 src={item.images.standard_resolution.url}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               />
               <div className="instagram-text-container">
                 <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
