@@ -4,7 +4,6 @@ import "./Home.css";
 export default class Test extends Component {
     constructor(props) {
         super(props);
-
     }
 
     render() {

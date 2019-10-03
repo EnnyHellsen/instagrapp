@@ -33,13 +33,13 @@
     font-weight: 200;
 }
 
-.hero p {
-    /* align-self: center;
+/* .hero p {
+    align-self: center;
     justify-self: flex-end;
     width: 25%;
     text-align: left;
-    padding-right: 10vw; */
-}
+    padding-right: 10vw;
+} */
 
 .hero a {
     align-self: flex-end;

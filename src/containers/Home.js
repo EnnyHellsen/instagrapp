@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Home.css";
 import { API } from "aws-amplify";
 import config from "../config";
-// import response from "../response";
 import InstagramItem from "../components/InstagramItem";
 import Hero from "../components/Hero";
 
@@ -19,8 +18,6 @@ export default class Home extends Component {
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
-
-  rootRef = React.createRef();
   myRef = React.createRef();
 
 
@@ -43,7 +40,7 @@ export default class Home extends Component {
 
   getMoreImages = async () => {
     const nextUrl = this.state.nextUrl;
-    if (nextUrl != "") {
+    if (nextUrl !== "") {
       try {
         const newResponse = await API.get("instagram", `media/recent/?next_url=${nextUrl}`, {
           queryStringParameters: { access_token: config.instagram.accessToken }
@@ -94,10 +91,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Hero activePos={this.state.activePos} />
         <div className="Home">
-          <div className="lander" ref={this.rootRef}>
+          <div className="lander">
             {this.state.isLoading && <h1>Loading content..</h1>}
             {!this.state.isLoading && <InstagramItem data={this.state.response} />}
             <div ref={this.myRef}>
@@ -105,7 +102,7 @@ export default class Home extends Component {
           </div>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -8,7 +8,7 @@ export default ({ extra, ...props }) => {
     <div className="header" {...props}>
       <Link to="/kontakt"> Kontakt </Link>
       <Link to="/">
-        <img className="logo" src={logo} />
+        <img alt="logo" className="logo" src={logo} />
       </Link>
       <Link to="/om-mig"> Om mig </Link>
     </div>
