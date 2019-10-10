@@ -31,9 +31,9 @@ const InstagramItem = ({ data }) => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               />
-              <div className="instagram-text-container">
+              {/* <div className="instagram-text-container">
                 <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
-              </div>
+              </div> */}
             </div>
           )
         } else {
