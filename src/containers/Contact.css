@@ -1,0 +1,24 @@
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    margin-top: 30vh;
+    font-weight: 200;
+}
+
+
+.contact-text-box {
+    padding: 0 7rem 0 5rem;
+    text-align: left;
+}
+
+.contact h1 {
+    font-size: 6rem;
+    font-weight: inherit;
+    padding-bottom: 2rem;
+}
+
+.contact-info {
+    font-size: 4rem;
+    font-weight: inherit;
+    text-align: center;
+}
