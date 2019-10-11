@@ -16,8 +16,18 @@
     padding: 0.8rem 3rem 0.8rem 3rem;
     font-family: "Open Sans", sans-serif;
     font-weight: 200;
+    text-decoration: none;
 }
 
 .logo {
     height: 5rem;
+}
+
+.header a:hover {
+    opacity: 0.7;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    opacity: 1;
 }
