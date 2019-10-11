@@ -34,6 +34,33 @@
     font-size: 1.5rem;
 }
 
+.instagram-loader {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+
+.instagram-loader div {
+    background-color: black;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    animation: bounce 1.5s infinite ease-in-out both;
+}
+
+.instagram-loader div:first-of-type {
+    animation-delay: 0.75s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0);
+        }
+    50% {
+            transform: scale(1.0);
+        }
+}
+
 @media only screen and (min-width: 700px) {
     .instagram-container {
         grid-template-columns: 1fr 1fr 1fr;

@@ -15,6 +15,7 @@ export default class Home extends Component {
       scrollTop: 0,
       activePos: false,
       nextUrl: "",
+      isDoneFetchingData: false,
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -50,6 +51,8 @@ export default class Home extends Component {
             response: [...this.state.response, ...newResponse.data],
             nextUrl: newResponse.pagination.next_url,
           });
+        } else {
+          this.setState({ isDoneFetchingData: true });
         }
       } catch (e) {
         console.log('error', e);
@@ -96,7 +99,7 @@ export default class Home extends Component {
         <div className="Home">
           <div className="lander">
             {this.state.isLoading && <h1>Loading content..</h1>}
-            {!this.state.isLoading && <InstagramItem data={this.state.response} />}
+            {!this.state.isLoading && <InstagramItem data={this.state.response} isDoneFetchingData={this.state.isDoneFetchingData} />}
             <div ref={this.myRef}>
               Item to be observed with intersection observer
           </div>

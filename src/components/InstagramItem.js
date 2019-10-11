@@ -1,7 +1,7 @@
 import React from "react";
 import './InstagramItem.css';
 
-const InstagramItem = ({ data }) => {
+const InstagramItem = ({ data, isDoneFetchingData }) => {
 
   const handleMouseEnter = event => {
     event.currentTarget.classList.add('img-on-hover');
@@ -40,6 +40,15 @@ const InstagramItem = ({ data }) => {
           return false;
         }
       })}
+
+      {
+        isDoneFetchingData === false ?
+          <div className="instagram-loader" >
+            <div></div>
+            <div></div>
+          </div>
+          : null
+      }
     </div>
   )
 };
