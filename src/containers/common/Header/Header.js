@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Header.css";
-import logo from './nora_logga.png'
+import logo from './nora_logga.png';
 
-export default ({ extra, ...props }) => {
+const Header = ({ extra, ...props }) => {
   return (
     <div className="header" {...props}>
       <Link to="/kontakt"> Kontakt </Link>
@@ -14,3 +14,5 @@ export default ({ extra, ...props }) => {
     </div>
   );
 };
+
+export default Header;
