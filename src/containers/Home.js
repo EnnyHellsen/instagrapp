@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
-import { API } from "aws-amplify";
-import config from "../config";
+// import { API } from "aws-amplify";
+// import config from "../config";
 import InstagramItem from "../components/InstagramItem";
 import Hero from "../components/Hero";
 
@@ -23,42 +23,89 @@ export default class Home extends Component {
 
 
   getInstagram = async () => {
-    this.setState({ isLoading: true });
 
-    try {
-      const response = await API.get("instagram", "media/recent/", {
-        queryStringParameters: { access_token: config.instagram.accessToken }
+    await fetch('/api/fetchInstagram', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          isLoading: false,
+          response: data.data,
+          nextUrl: data.pagination.next_url,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({ isLoading: false });
       });
-      this.setState({
-        isLoading: false,
-        response: response.data,
-        nextUrl: response.pagination.next_url
-      });
-    } catch (e) {
-      this.setState({ isLoading: false });
-    }
+
+    // try {
+    //   const response = await API.get("instagram", "media/recent/", {
+    //     queryStringParameters: { access_token: config.instagram.accessToken }
+    //   });
+    //   console.log(response.data);
+    //   this.setState({
+    //     isLoading: false,
+    //     response: response.data,
+    //     nextUrl: response.pagination.next_url
+    //   });
+    // } catch (e) {
+    //   this.setState({ isLoading: false });
+    // }
   }
+
+
 
   getMoreImages = async () => {
     const nextUrl = this.state.nextUrl;
-    if (nextUrl !== "") {
-      try {
-        const newResponse = await API.get("instagram", `media/recent/?next_url=${nextUrl}`, {
-          queryStringParameters: { access_token: config.instagram.accessToken }
-        });
-        if (newResponse.pagination.next_url) {
-          this.setState({
-            response: [...this.state.response, ...newResponse.data],
-            nextUrl: newResponse.pagination.next_url,
-          });
-        } else {
-          this.setState({ isDoneFetchingData: true });
+
+    if (nextUrl) {
+      await fetch('/api/fetchMoreInstagram', {
+        method: 'POST',
+        body: JSON.stringify(nextUrl),
+        headers: {
+          'Content-Type': 'application/json'
         }
-      } catch (e) {
-        console.log('error', e);
-      }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          if (data.pagination.next_url) {
+            this.setState({
+              response: [...this.state.response, ...data.data],
+              nextUrl: data.pagination.next_url,
+            });
+          } else {
+            this.setState({ isDoneFetchingData: true })
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
+
+    // if (nextUrl !== "") {
+    //   try {
+    //     const newResponse = await API.get("instagram", `media/recent/?next_url=${nextUrl}`, {
+    //       queryStringParameters: { access_token: config.instagram.accessToken }
+    //     });
+    //     if (newResponse.pagination.next_url) {
+    //       this.setState({
+    //         response: [...this.state.response, ...newResponse.data],
+    //         nextUrl: newResponse.pagination.next_url,
+    //       });
+    //     } else {
+    //       this.setState({ isDoneFetchingData: true });
+    //     }
+    //   } catch (e) {
+    //     console.log('error', e);
+    //   }
+    // }
   }
+
 
   handleScroll(event) {
     const prevState = this.state.scrollTop;
@@ -72,7 +119,9 @@ export default class Home extends Component {
     }
   }
 
+
   componentDidMount() {
+
     window.addEventListener("scroll", this.handleScroll);
     this.getInstagram();
 

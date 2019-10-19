@@ -1,7 +1,7 @@
 import React from "react";
 import "./Hero.css";
 import chevron from './chevron.svg';
-import logo from '../containers/common/nora_logga.png';
+import logo from './nora_logga.png';
 
 const Hero = ({ activePos }) => {
 
