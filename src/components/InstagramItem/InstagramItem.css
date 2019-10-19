@@ -52,6 +52,7 @@
     display: flex;
     justify-self: center;
     align-self: center;
+    animation: spin 3s infinite linear;
 }
 
 .instagram-loader div {
@@ -68,10 +69,19 @@
 
 @keyframes bounce {
     0%, 100% {
-        transform: scale(0);
+        transform: scale(0.2);
         }
     50% {
             transform: scale(1.0);
+        }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        }
+    100% {
+            transform: rotate(360deg);
         }
 }
 
