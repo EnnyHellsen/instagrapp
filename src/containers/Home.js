@@ -23,7 +23,6 @@ export default class Home extends Component {
 
 
   getInstagram = async () => {
-
     await fetch('/api/fetchInstagram', {
       method: 'POST',
       headers: {
@@ -32,7 +31,6 @@ export default class Home extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data);
         this.setState({
           isLoading: false,
           response: data.data,
@@ -43,23 +41,7 @@ export default class Home extends Component {
         console.log(error);
         this.setState({ isLoading: false });
       });
-
-    // try {
-    //   const response = await API.get("instagram", "media/recent/", {
-    //     queryStringParameters: { access_token: config.instagram.accessToken }
-    //   });
-    //   console.log(response.data);
-    //   this.setState({
-    //     isLoading: false,
-    //     response: response.data,
-    //     nextUrl: response.pagination.next_url
-    //   });
-    // } catch (e) {
-    //   this.setState({ isLoading: false });
-    // }
   }
-
-
 
   getMoreImages = async () => {
     const maxId = this.state.maxId;
@@ -88,24 +70,6 @@ export default class Home extends Component {
           console.log(error);
         });
     }
-
-    // if (nextUrl !== "") {
-    //   try {
-    //     const newResponse = await API.get("instagram", `media/recent/?next_url=${nextUrl}`, {
-    //       queryStringParameters: { access_token: config.instagram.accessToken }
-    //     });
-    //     if (newResponse.pagination.next_url) {
-    //       this.setState({
-    //         response: [...this.state.response, ...newResponse.data],
-    //         nextUrl: newResponse.pagination.next_url,
-    //       });
-    //     } else {
-    //       this.setState({ isDoneFetchingData: true });
-    //     }
-    //   } catch (e) {
-    //     console.log('error', e);
-    //   }
-    // }
   }
 
 
@@ -158,18 +122,3 @@ export default class Home extends Component {
     );
   }
 }
-
-
-// popupImage = event => {
-//   event.preventDefault();
-//   console.log(event.target);
-//   event.target.src =
-//     event.target.src ===
-//       this.state.response.data[event.target.id].images.standard_resolution.url
-//       ? this.state.response.data[event.target.id].images.low_resolution.url
-//       : this.state.response.data[event.target.id].images.standard_resolution
-//         .url;
-//   return console.log(
-//     this.state.response.data[event.target.id].images.standard_resolution.url
-//   );
-// };
