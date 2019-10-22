@@ -14,7 +14,7 @@ export default class Home extends Component {
       response: [],
       scrollTop: 0,
       activePos: false,
-      nextUrl: "",
+      maxId: "",
       isDoneFetchingData: false,
     };
     this.handleScroll = this.handleScroll.bind(this);
@@ -32,10 +32,11 @@ export default class Home extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
+        console.log(data);
         this.setState({
           isLoading: false,
           response: data.data,
-          nextUrl: data.pagination.next_url,
+          maxId: data.pagination.next_max_id,
         });
       })
       .catch(error => {
@@ -61,22 +62,23 @@ export default class Home extends Component {
 
 
   getMoreImages = async () => {
-    const nextUrl = this.state.nextUrl;
+    const maxId = this.state.maxId;
 
-    if (nextUrl) {
+    if (maxId) {
       await fetch('/api/fetchMoreInstagram', {
         method: 'POST',
-        body: JSON.stringify(nextUrl),
+        body: JSON.stringify(maxId),
         headers: {
           'Content-Type': 'application/json'
         }
       })
         .then(resp => resp.json())
         .then(data => {
-          if (data.pagination.next_url) {
+          if (data.pagination.next_max_id != null) {
+            console.log(data);
             this.setState({
               response: [...this.state.response, ...data.data],
-              nextUrl: data.pagination.next_url,
+              maxId: data.pagination.next_max_id,
             });
           } else {
             this.setState({ isDoneFetchingData: true })
