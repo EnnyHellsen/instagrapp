@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./Home.css";
 // import { API } from "aws-amplify";
 // import config from "../config";
-import InstagramItem from "../components/InstagramItem";
-import Hero from "../components/Hero";
+import InstagramItem from "../../components/InstagramItem";
+import Hero from "../../components/Hero";
 
 export default class Home extends Component {
   constructor(props) {
@@ -38,8 +38,8 @@ export default class Home extends Component {
         });
       })
       .catch(error => {
-        console.log(error);
         this.setState({ isLoading: false });
+        console.log(error);
       });
   }
 
