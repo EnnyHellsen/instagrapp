@@ -2,7 +2,6 @@ import React from "react";
 import './InstagramItem.css';
 
 const InstagramItem = ({ data, isDoneFetchingData }) => {
-
   return (
     <div className="instagram-container" id="start">
       {data.map(item => {
@@ -14,18 +13,20 @@ const InstagramItem = ({ data, isDoneFetchingData }) => {
 
         if (item.tags.indexOf("norahellsen") > -1) {
           return (
-            <div
-              className="instagram-item"
-              key={item.id}>
-              <img
-                className="instagram-image"
-                alt={item.caption.text.substr(0, 40)}
-                src={item.images.standard_resolution.url}
-              />
-              <div className="instagram-text-container">
-                <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
+            <a href={`/portfolio/${finalString.slice(0, 10)}`}>
+              <div
+                className="instagram-item"
+                key={item.id}>
+                <img
+                  className="instagram-image"
+                  alt={item.caption.text.substr(0, 40)}
+                  src={item.images.standard_resolution.url}
+                />
+                <div className="instagram-text-container">
+                  <p> {finalString.length > 149 ? finalString + `..` : finalString}</p>
+                </div>
               </div>
-            </div>
+            </a>
           )
         } else {
           return false;
