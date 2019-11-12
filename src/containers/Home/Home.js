@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./Home.css";
-// import { API } from "aws-amplify";
-// import config from "../config";
 import InstagramItem from "../../components/InstagramItem";
 import Hero from "../../components/Hero";
 
