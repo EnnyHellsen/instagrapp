@@ -13,10 +13,11 @@ const InstagramItem = ({ data, isDoneFetchingData }) => {
 
         if (item.tags.indexOf("norahellsen") > -1) {
           return (
-            <a href={`/portfolio/${finalString.slice(0, 10)}`}>
-              <div
-                className="instagram-item"
-                key={item.id}>
+            <a
+              href={`/portfolio/${finalString.slice(0, 10)}`}
+              key={item.id}
+            >
+              <div className="instagram-item">
                 <img
                   className="instagram-image"
                   alt={item.caption.text.substr(0, 40)}
