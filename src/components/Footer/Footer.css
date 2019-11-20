@@ -1,18 +1,17 @@
 .footer {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
+    display: grid;
     font-family: "Open Sans", sans-serif;
     font-weight: 200;
-    /* position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0; */
+    background: linear-gradient(130deg, #d79797, #9198e5);
 }
 
-.social {
+.footer-social {
     background-color: #f1eef2;
-    padding: 7rem 0 2rem 0;
+    padding: 3rem 0 0.5rem 0;
+}
+
+.footer-main {
+    padding: 2rem 8vw 0 8vw;
 }
 
 .footer h3 {
@@ -20,12 +19,13 @@
 }
 
 .instagram-logo {
-    width: 4rem;
+    width: 5rem;
+    padding: 0.5rem;
 }
 
 .second-footer {
-    border-top: 1px solid black;
-    margin: 0 10rem 0 10rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding: 1rem;
+    margin-top: 4rem;
     font-size: 1rem;
 }
