@@ -1,8 +1,11 @@
 const axios = require('axios');
+require('dotenv').config();
+
+const token = process.env.INSTAGRAM_ACCESS_TOKEN
 
 module.exports = (req, res) => {
 
-  axios.get('https://api.instagram.com/v1/users/self/media/recent?access_token=7165710768.1677ed0.0d9aa78c95374dfebe4da25a6690f899')
+  axios.get(`https://api.instagram.com/v1/users/self/media/recent?access_token=${token}`)
     .then(response => {
       const data = {
         data: response.data.data,
