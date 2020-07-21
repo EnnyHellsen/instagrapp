@@ -21,7 +21,7 @@ export default class Home extends Component {
 
 
   getInstagram = async () => {
-    await fetch('/api/fetchInstagram', {
+    await fetch('/.netlify/functions/fetchInstagram', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export default class Home extends Component {
     const maxId = this.state.maxId;
 
     if (maxId) {
-      await fetch('/api/fetchMoreInstagram', {
+      await fetch('/.netlify/functions/fetchMoreInstagram', {
         method: 'POST',
         body: JSON.stringify(maxId),
         headers: {
