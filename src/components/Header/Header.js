@@ -6,11 +6,14 @@ import logo from './nora_logga.png';
 const Header = ({ extra, ...props }) => {
   return (
     <div className="header" {...props}>
-      <Link to="/kontakt"> Kontakt </Link>
-      <Link to="/">
-        <img alt="logo" className="logo" src={logo} />
-      </Link>
       <Link to="/om-mig"> Om mig </Link>
+      <Link to="/">
+        {/* <img alt="logo" className="logo" src={logo} /> */}
+        <div className="home-button">
+          <div></div>
+        </div>
+      </Link>
+      <Link to="/kontakt"> Kontakt </Link>
     </div>
   );
 };
