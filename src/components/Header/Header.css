@@ -8,49 +8,41 @@
     left: 0;
     right: 0;
     z-index: 1;
+    padding: 1.4rem 0 1rem 0;
+
+}
+
+.header-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(130deg, #b46d6d, #5a61ad);
+    z-index: 99;
 }
 
 .header a {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: black;
-    padding: 0.8rem 3rem 0.8rem 3rem;
     font-family: "Open Sans", sans-serif;
     font-weight: 200;
     text-decoration: none;
+    margin: 0 1rem;
 }
 
-.logo {
-    height: 5rem;
-}
-
-/* .header a:hover {
-    opacity: 0.7;
-} */
-
-.logo:hover {
-    transform: scale(1.1);
-    opacity: 1;
+.active-nav-item {
+    padding: 0 5px;
+    border-radius: 6px;
+    background-color: black;
+    /* background-color:rgba(83, 56, 114, 0.6); */
+    color: white !important;
+    text-decoration: none;
 }
 
 
-/* Homebutton style  */
-
-.home-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 40%;
-}
-
-.home-button div {
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: inherit;
-    border: 1px solid #000;
-}
-
-.home-button:hover {
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+@media screen and (min-width: 400px) {
+    .header a {
+        font-size: 2.2rem;
+    }
 }

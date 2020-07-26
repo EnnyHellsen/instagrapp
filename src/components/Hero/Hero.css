@@ -1,24 +1,23 @@
 .hero {
-    background-image: url('./hero.jpg');
+    background-image: url('https://images.unsplash.com/photo-1589109410015-cb7fc5af5389?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
     background-size: cover;
     background-position: center; 
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-rows: 2fr 1fr 4fr;
+    grid-template-rows: 1fr max-content max-content 1fr;
 }
 
 .hero .hero-logo {
-    width: 15rem;
-    justify-self: flex-end;
-    margin-right: 10rem;
-    margin-top: 10rem;
+    width: 20rem;
+    justify-self: center;
+    align-self: center;
+    margin-top: 4rem;
 }
 
 .hero h1 {
     font-size: 9rem;
     transition: all 0.4s;
-    margin-top: 10vh;
 }
 
 .hero .active {
@@ -33,18 +32,11 @@
     font-weight: 200;
 }
 
-/* .hero p {
-    align-self: center;
-    justify-self: flex-end;
-    width: 25%;
-    text-align: left;
-    padding-right: 10vw;
-} */
-
 .hero a {
-    align-self: flex-end;
+    align-self: end;
     justify-self: center;
     cursor: pointer;
+    margin-bottom: 6rem;
 }
 .hero .chevron {
     height: 4rem;

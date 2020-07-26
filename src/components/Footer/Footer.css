@@ -2,7 +2,8 @@
     display: grid;
     font-family: "Open Sans", sans-serif;
     font-weight: 200;
-    background: linear-gradient(130deg, #d79797, #9198e5);
+    background: linear-gradient(130deg, #b46d6d, #5a61ad);
+    color: white;
 }
 
 .footer-social {
@@ -16,6 +17,7 @@
 
 .footer h3 {
     font-size: 4rem;
+    color: white;
 }
 
 .instagram-logo {
@@ -24,8 +26,11 @@
 }
 
 .second-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding: 1rem;
     margin-top: 4rem;
     font-size: 1rem;
+    color: white;
 }
+
+/* background: linear-gradient(130deg, #d79797, #9198e5); */
