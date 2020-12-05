@@ -8,8 +8,8 @@ const Hero = ({ activePos }) => {
   return (
     <div className="hero">
       <img alt="logo" className="hero-logo" src={logo} />
-      <h1 className={activePos ? 'active' : ''}> Nora Hellsén Jewellery </h1>
-      <p> intro text hello hello this my jam jag är silversmed och jag är coolast i stan för mina smycken de äger verkligen</p>
+      <h1 className={activePos ? 'active' : ''}> Nora Hellsén smyckekonst</h1>
+      <p className="hero-description"> Välkommen till min portfolio! Jag är för närvarande student inom metallkonsten och skapar främst smycken av ädelmetall och andra material.</p>
       <a href="/#start">
         <img alt="down-arrow" className="chevron" src={chevron} />
       </a>

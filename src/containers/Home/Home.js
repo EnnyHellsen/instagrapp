@@ -27,48 +27,52 @@ export default class Home extends Component {
         'Content-Type': 'application/json'
       }
     })
-      .then(resp => resp.json())
+      // .then(resp => resp.json())
       .then(data => {
+        return data.text()
+      })
+      .then(data => {
+        console.log(JSON.parse(data))
         this.setState({
           isLoading: false,
-          response: data.data,
-          maxId: data.pagination.next_max_id,
+          response: JSON.parse(data),
+          // maxId: data.pagination.next_max_id,
         });
       })
       .catch(error => {
-        this.setState({ isLoading: false });
-        console.log(error);
+        // this.setState({ isLoading: false });
+        console.log('err:', error);
       });
   }
 
-  getMoreImages = async () => {
-    const maxId = this.state.maxId;
+  // getMoreImages = async () => {
+  //   const maxId = this.state.maxId;
 
-    if (maxId) {
-      await fetch('/.netlify/functions/fetchMoreInstagram', {
-        method: 'POST',
-        body: JSON.stringify(maxId),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(resp => resp.json())
-        .then(data => {
-          if (data.pagination.next_max_id != null) {
-            console.log(data);
-            this.setState({
-              response: [...this.state.response, ...data.data],
-              maxId: data.pagination.next_max_id,
-            });
-          } else {
-            this.setState({ isDoneFetchingData: true })
-          }
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
-  }
+  //   if (maxId) {
+  //     await fetch('/.netlify/functions/fetchMoreInstagram', {
+  //       method: 'POST',
+  //       body: JSON.stringify(maxId),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
+  //       .then(resp => resp.json())
+  //       .then(data => {
+  //         if (data.pagination.next_max_id != null) {
+  //           console.log(data);
+  //           this.setState({
+  //             response: [...this.state.response, ...data.data],
+  //             maxId: data.pagination.next_max_id,
+  //           });
+  //         } else {
+  //           this.setState({ isDoneFetchingData: true })
+  //         }
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  //   }
+  // }
 
 
   handleScroll(event) {
@@ -90,7 +94,7 @@ export default class Home extends Component {
     this.getInstagram();
 
     const handleIntersectionObserver = entry => {
-      entry[0].isIntersecting ? this.getMoreImages() : null;
+      // entry[0].isIntersecting ? this.getMoreImages() : null;
     }
     const observer = new IntersectionObserver(handleIntersectionObserver, {
       root: null,

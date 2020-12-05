@@ -4,10 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Run app
 
-Run command `now dev` to start the server on [localhost:3000](localhost:3000)
-Hot reloading will open on a separate localhost.
+This app is using netlify serverless functions. 
+https://docs.netlify.com/functions/overview/#manage-your-serverless-functions
 
-### Now serverless 
+To start the server on [localhost:8888](localhost:8888) run:
 
-The project is using [zeit](https://zeit.co/docs/v2/serverless-functions/introduction/) to run serverless functions
+```bash 
+netlify dev
+```
+
+
 

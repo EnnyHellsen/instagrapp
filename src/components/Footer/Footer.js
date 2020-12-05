@@ -5,20 +5,17 @@ const Footer = ({ ...props }) => {
 
     return (
         <div className="footer" {...props}>
-            <div className="footer-social">
+            <div className="footer-top">
                 <a href="https://www.instagram.com/norahellsenjewellery/">
                     <img alt="instagram-logo" className="instagram-logo" src="https://image.flaticon.com/icons/png/512/87/87390.png" />
                 </a>
-                <a href="https://www.instagram.com/norahellsenjewellery/">
-                    <img alt="instagram-logo" className="instagram-logo" src="https://image.flaticon.com/icons/svg/59/59439.svg" />
-                </a>
-                <p> Följ mig på sociala medier </p>
+                <p> Följ mig på Instagram </p>
             </div>
 
             <div className="footer-main">
-                <h3> Nora Hellsén Jewellery </h3>
-                <p> Din silversmed för alla lägen. Om du är intresserad av ett föremål på min portfolio så tveka inte att höra av dig. Jag gör specialbeställningar till smycken, assesoarer och korpus <a href="/kontakt"> Kontaka mig här </a></p>
-                <p className="second-footer"> Website made with ♥ by Enny</p>
+                <h3 className="footer-heading"> Nora Hellsén Ädelmetallsmed</h3>
+                <p className="footer-paragraph"> Jag skapar på egen inspiration och tar även specialbeställningar anpassade efter vad precis du vill ha. Välkommen att kika runt och kontakta mig gärna <a href="/kontakt"> här </a></p>
+                <p className="footer-bottom"> Website made with ♥ by Enny</p>
             </div>
         </div>
     )

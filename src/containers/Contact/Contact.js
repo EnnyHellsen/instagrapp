@@ -4,17 +4,20 @@ import "./Contact.css";
 export default class Contact extends Component {
   render() {
     return (
-      <div className="contact">
-        <div className="contact-text-box">
-          <h1> Kontakta mig </h1>
-          <p> Vid frågor, förfrågningar eller om du vill skicka fanmail kontakta mig genom dessa medier. Jag gör allt inom silversmycken, kan även göra guldsmycken på beställning bara för att jag är så bra. Om du är intressead av det jag har gör, skriv! </p>
+      <React.Fragment>
+        <div className="contact-image"></div>
+        <div className="contact">
+          <div className="contact-text-box">
+            <h1 className="contact-headline"> Hör av dig vetja! </h1>
+            <p className="contact-paragraph"> Har du hittat något du tycker om? Eller har du en egen idé du vill se bli verklighet? Välkommen att kontakta mig angående beställningar, samarbeten eller andra kloka funderingar!</p>
+          </div>
+          <div className="contact-info">
+            <p> <strong> Instagram </strong> @studionorahellsen </p>
+            <p> <strong> Email </strong> nora.h-j(@)live.se </p>
+            <p> <strong> Telefon </strong> +46 738 326 732 </p>
+          </div>
         </div>
-        <div className="contact-info">
-          <p> @norahellsenjewellery </p>
-          <p> nora.h-j@live.se </p>
-          <p> +46738 326 732 </p>
-        </div>
-      </div>
+      </React.Fragment>
     );
   };
 }

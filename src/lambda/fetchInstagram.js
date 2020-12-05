@@ -3,19 +3,25 @@ require('dotenv').config();
 
 const token = process.env.INSTAGRAM_ACCESS_TOKEN
 
-module.exports = (req, res) => {
+exports.handler = function (event, context, callback) {
+  // your server-side functionality
 
-  axios.get(`https://api.instagram.com/v1/users/self/media/recent?access_token=${token}`)
+  axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${token}`)
     .then(response => {
-      const data = {
-        data: response.data.data,
-        pagination: {
-          next_max_id: response.data.pagination.next_max_id,
-        }
-      }
-      res.send(data);
+      return response
+    })
+    .then(r => {
+      // console.log(r.data.data)
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(r.data.data)
+        // body: JSON.stringify(r)
+      });
     })
     .catch(error => {
       console.log(error);
     });
 }
+
+
+
