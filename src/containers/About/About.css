@@ -1,0 +1,76 @@
+.about {
+    display: grid;
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    grid-template-areas: 
+        'heading'
+        'subheading'
+        'image'
+        'paragraph'
+        'experience';
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, max-content);
+    margin-top: 6rem;
+    font-weight: 200;
+    grid-gap: 0.5rem;
+}
+
+.about-heading {
+    font-size: 4rem;
+    grid-area: heading;
+    margin: 0;
+}
+
+.about-subheading {
+    font-size: 2.5rem;
+    grid-area: subheading;
+    margin-top: 0;
+    font-weight: 300;
+}
+
+.about-paragraph {
+    grid-area: paragraph;
+}
+
+.about-img {
+    border-radius: 6px;
+    max-width: 100%;
+    grid-area: image;
+    margin: 1rem 0;
+}
+
+.about-experience {
+    grid-area: experience;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 400px) {
+    .about {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr; 
+        grid-template-rows: max-content max-content max-content 1fr;
+        grid-template-areas: 
+        'heading image'
+        'subheading image'
+        'paragraph image'
+        'experience image';
+        margin-top: 8rem;
+        grid-column-gap: 4rem;
+        text-align: left;
+    }
+
+    .about-heading {
+        font-size: 6rem;
+    }
+
+    .about-img {
+        margin: 2rem;
+        border-radius: 50%;
+    }
+
+    .about-experience {
+        margin-top: 2rem;
+    }
+}

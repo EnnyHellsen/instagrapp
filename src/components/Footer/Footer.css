@@ -1,0 +1,42 @@
+.footer {
+    display: grid;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 200;
+    background: linear-gradient(130deg, #b46d6d, #5a61ad);
+    color: white;
+}
+
+.footer-top {
+    background-color: #f1eef2;
+    padding: 3rem 0 0.5rem 0;
+    color: black !important;
+}
+
+.instagram-logo {
+    width: 5rem;
+    padding: 0.5rem;
+}
+
+.footer-main {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.footer-heading {
+    font-size: 2rem;
+    color: white;
+    font-weight: 500;
+}
+
+.footer-paragraph a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+}

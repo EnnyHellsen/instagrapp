@@ -1,0 +1,38 @@
+.contact {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas: 
+        'image image'
+        'textbox info';
+    font-weight: 200;
+}
+
+.contact-image {
+    grid-area: image;
+    height: 300px;
+    width: 100%;
+    background-image: url('./consume-me.jpg');
+    background-size: cover;
+    margin-bottom: 3rem;
+}
+
+.contact-text-box {
+    text-align: left;
+    grid-area: textbox;
+}
+
+.contact-headline {
+    font-size: 6rem;
+    padding-bottom: 2rem;
+    margin: 0;
+}
+
+.contact-info {
+    grid-area: info;
+    font-size: 2.5rem;
+    justify-self: center;
+    text-align: left;
+}
