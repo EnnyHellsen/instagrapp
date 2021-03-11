@@ -1,28 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
 import InstagramItem from "../../components/InstagramItem";
 import Hero from "../../components/Hero";
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoading: true,
-      response: [],
-      scrollTop: 0,
-      activePos: false,
-      maxId: "",
-      isDoneFetchingData: false,
-    };
-    this.handleScroll = this.handleScroll.bind(this);
-  }
-  myRef = React.createRef();
+const Home = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [imageResponse, setImageResponse] = React.useState([]);
+  const [activePosition, setActivePosition] = React.useState(false);
+  const [scrollTop, setScrollTop] = React.useState(0);
 
 
-  getInstagram = async () => {
-    await fetch('/.netlify/functions/fetchInstagram', {
-      method: 'POST',
+  const getInstagram = async () => {
+    await fetch('/.netlify/functions/getAllMedia', {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }
@@ -32,95 +22,50 @@ export default class Home extends Component {
         return data.text()
       })
       .then(data => {
-        console.log(JSON.parse(data))
-        this.setState({
-          isLoading: false,
-          response: JSON.parse(data),
-          // maxId: data.pagination.next_max_id,
-        });
+        console.log(data)
+        setImageResponse(JSON.parse(data))
+        setIsLoading(false)
       })
       .catch(error => {
-        // this.setState({ isLoading: false });
+        setIsLoading(false)
         console.log('err:', error);
       });
   }
 
-  // getMoreImages = async () => {
-  //   const maxId = this.state.maxId;
+  const handleScroll = (event) => {
 
-  //   if (maxId) {
-  //     await fetch('/.netlify/functions/fetchMoreInstagram', {
-  //       method: 'POST',
-  //       body: JSON.stringify(maxId),
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
-  //       .then(resp => resp.json())
-  //       .then(data => {
-  //         if (data.pagination.next_max_id != null) {
-  //           console.log(data);
-  //           this.setState({
-  //             response: [...this.state.response, ...data.data],
-  //             maxId: data.pagination.next_max_id,
-  //           });
-  //         } else {
-  //           this.setState({ isDoneFetchingData: true })
-  //         }
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  //   }
-  // }
+  }
 
+  const scrolled = window.scrollY;
 
-  handleScroll(event) {
-    const prevState = this.state.scrollTop;
-    this.setState({ scrollTop: event.srcElement.scrollingElement.scrollTop });
-    const currentState = this.state.scrollTop;
+  React.useEffect(() => {
+    const prevState = scrollTop;
+    setScrollTop(window.scrollY);
+    const currentState = scrollTop;
 
     if (prevState < currentState) {
-      this.setState({ activePos: true })
+      setActivePosition(true)
     } else if (prevState > currentState) {
-      this.setState({ activePos: false })
+      setActivePosition(false)
     }
-  }
+  }, [scrolled])
 
 
-  componentDidMount() {
+  React.useEffect(() => {
+    getInstagram();
+  }, [imageResponse])
 
-    window.addEventListener("scroll", this.handleScroll);
-    this.getInstagram();
-
-    const handleIntersectionObserver = entry => {
-      // entry[0].isIntersecting ? this.getMoreImages() : null;
-    }
-    const observer = new IntersectionObserver(handleIntersectionObserver, {
-      root: null,
-      threshold: 0.1,
-    });
-
-    const target = this.myRef.current;
-    observer.observe(target);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
-  }
-
-  render() {
-    return (
-      <div>
-        <Hero activePos={this.state.activePos} />
-        <div className="Home">
-          <div className="lander">
-            {this.state.isLoading && <h1>Loading content..</h1>}
-            {!this.state.isLoading && <InstagramItem data={this.state.response} isDoneFetchingData={this.state.isDoneFetchingData} />}
-            <div ref={this.myRef}></div>
-          </div>
+  return (
+    <div>
+      <Hero activePos={activePosition} />
+      <div className="Home">
+        <div className="lander">
+          {isLoading && <h1>Loading content..</h1>}
+          {!isLoading && <InstagramItem data={imageResponse} isDoneFetchingData={true} />}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default Home;

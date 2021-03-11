@@ -15,7 +15,7 @@ const InstagramItem = ({ data, isDoneFetchingData }) => {
         if (isPortfolioItem) {
           return (
             <a
-              href={`/portfolio/${finalString.slice(0, 10)}`}
+              href={`/portfolio/${item.id}`}
               key={item.id}
             >
               <div className="instagram-item">

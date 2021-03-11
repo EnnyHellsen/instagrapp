@@ -5,7 +5,11 @@ const token = process.env.INSTAGRAM_ACCESS_TOKEN
 
 exports.handler = function (event, context, callback) {
 
-  axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${token}&limit=100`)
+  console.log(event, context);
+
+  const mediaId = event.headers;
+
+  axios.get(`https://graph.instagram.com/17889489064797712?fields=id,caption,media_url&access_token=${token}`)
     .then(response => {
       return response
     })
@@ -19,6 +23,3 @@ exports.handler = function (event, context, callback) {
       console.log(error);
     });
 }
-
-
-
