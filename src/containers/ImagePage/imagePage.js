@@ -17,12 +17,11 @@ const ImagePage = ({ location }) => {
     });
   }, [instagramData])
 
-  console.log(imageData)
   return (
-    <div>
+    <section className="image-page-container">
       <img className="image-page-img" src={imageData.media_url} />
-      <p> {imageData.caption} </p>
-    </div>
+      <p className="image-page-description"> {imageData.caption} </p>
+    </section>
   )
 }
 

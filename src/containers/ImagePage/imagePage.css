@@ -1,3 +1,22 @@
+.image-page-container {
+    padding: 7rem 2rem 0 2rem;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
 .image-page-img {
-    width: 50vw;
+    width: 100%;
+    padding: 2rem;
+}
+
+.image-page-description {
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+@media screen and (max-width: 750px) {
+    .image-page-container {
+        grid-template-columns: 1fr;
+    }
 }
