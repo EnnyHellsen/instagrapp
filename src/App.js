@@ -20,7 +20,7 @@ const App = () => {
         return data.text()
       })
       .then(data => {
-        console.log('fetched data')
+        console.log(data)
         setInstagramData(JSON.parse(data))
       })
       .catch(error => {

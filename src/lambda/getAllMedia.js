@@ -3,21 +3,26 @@ require('dotenv').config();
 
 const token = process.env.INSTAGRAM_ACCESS_TOKEN
 
-exports.handler = function (event, context, callback) {
+exports.handler = async function (event, context, callback) {
+  let instagramData = ""
 
-  axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${token}&limit=10`)
+  await axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${token}&limit=10`)
     .then(response => {
       return response
     })
     .then(r => {
-      callback(null, {
-        statusCode: 200,
-        body: JSON.stringify(r.data.data)
-      });
+      instagramData = r.data.data
+        ? r.data.data
+        : [{ id: "test-id", media_url: "test-image", caption: "test-caption" }, { id: "test-id", media_url: "test-image", caption: "test-caption" }]
     })
     .catch(error => {
       console.log(error);
     });
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(instagramData)
+  }
 }
 
 
