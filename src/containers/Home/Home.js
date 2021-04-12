@@ -13,27 +13,6 @@ const Home = () => {
   const instagramData = React.useContext(ImageContext);
   console.log(instagramData)
 
-  // const getInstagram = async () => {
-  //   await fetch('/.netlify/functions/getAllMedia', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     // .then(resp => resp.json())
-  //     .then(data => {
-  //       return data.text()
-  //     })
-  //     .then(data => {
-  //       // console.log(data)
-  //       setImageResponse(JSON.parse(data))
-  //       setIsLoading(false)
-  //     })
-  //     .catch(error => {
-  //       setIsLoading(false)
-  //       console.log('err:', error);
-  //     });
-  // }
 
   const handleScroll = (event) => {
 
