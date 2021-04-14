@@ -6,7 +6,7 @@ const apiKey = process.env.AIRTABLE_API_KEY
 exports.handler = async function (event, context, callback) {
   let data = "";
 
-  await axios.get('https://api.airtable.com/v0/appM7gpEv2n0HnBuy/Table%201?maxRecords=3&view=Grid%20view',
+  await axios.get('https://api.airtable.com/v0/appM7gpEv2n0HnBuy/Table%201?maxRecords=100&view=Grid%20view',
     {
       'headers': {
         'Authorization': `Bearer ${apiKey}`,
@@ -17,7 +17,6 @@ exports.handler = async function (event, context, callback) {
       return response
     })
     .then(r => {
-      console.log(r.data.records)
       data = r.data.records
     })
     .catch(error => {

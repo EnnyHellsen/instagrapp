@@ -9,24 +9,20 @@ export const ImageContext = React.createContext([]);
 const App = () => {
   const [instagramData, setInstagramData] = React.useState([])
 
-  // const getInstagram = async () => {
-  //   await fetch('/.netlify/functions/getAllMedia', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     .then(data => {
-  //       return data.text()
-  //     })
-  //     .then(data => {
-  //       console.log(data)
-  //       setInstagramData(JSON.parse(data))
-  //     })
-  //     .catch(error => {
-  //       console.log('err:', error);
-  //     });
-  // }
+  const populateAirtable = async () => {
+    await fetch('/.netlify/functions/populateAirtable', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(data => {
+        console.log(data.text());
+      })
+      .catch(error => {
+        console.log('err:', error);
+      });
+  }
 
   const getAirtable = async () => {
     await fetch('/.netlify/functions/getAirtableRecords', {
@@ -48,7 +44,7 @@ const App = () => {
   }
 
   React.useEffect(() => {
-    // getInstagram();
+    // populateAirtable();
     getAirtable();
   }, [])
 
