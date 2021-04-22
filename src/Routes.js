@@ -16,8 +16,8 @@ export default () => {
       <Route path="/kontakt" exact component={Contact} />
       <Route path="/om-mig" exact component={About} />
       {
-        instagramData.map(item => (
-          <Route key={item.id} path={`/portfolio/${item.fields.id}`} component={ImagePage} />
+        instagramData.length > 1 && instagramData.map(item => (
+          <Route key={item.fields.id} path={`/portfolio/${item.fields.id}`} component={ImagePage} />
         ))
       }
     </Switch>
