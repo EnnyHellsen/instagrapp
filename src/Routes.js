@@ -17,7 +17,7 @@ export default () => {
       <Route path="/om-mig" exact component={About} />
       {
         instagramData.map(item => (
-          <Route key={item.id} path={`/portfolio/${item.id}`} component={ImagePage} />
+          <Route key={item.id} path={`/portfolio/${item.fields.id}`} component={ImagePage} />
         ))
       }
     </Switch>

@@ -11,8 +11,8 @@ const ImagePage = ({ location }) => {
   React.useEffect(() => {
 
     instagramData.find(item => {
-      if (item.id === imageId) {
-        setImageData(item)
+      if (item.fields.id === imageId) {
+        setImageData(item.fields)
       }
     });
   }, [instagramData])
