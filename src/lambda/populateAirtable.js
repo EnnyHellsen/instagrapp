@@ -15,6 +15,12 @@ exports.handler = async function (event, context, callback) {
       const processedItems = [];
 
       instagramData.forEach(item => {
+        // If the item isn't tagged with #norahellsen we return early and don't it put into the array
+        const isPortfolioItem = item.caption.includes("#norahellsen")
+        if (!isPortfolioItem) {
+          return
+        }
+
         processedItems.push(
           {
             "fields": {
