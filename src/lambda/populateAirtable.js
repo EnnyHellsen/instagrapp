@@ -1,12 +1,12 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const imstagramToken = process.env.INSTAGRAM_ACCESS_TOKEN
+const instagramToken = process.env.INSTAGRAM_ACCESS_TOKEN
 const airtableApiKey = process.env.AIRTABLE_API_KEY
 
 exports.handler = async function (event, context, callback) {
 
-  await axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${imstagramToken}&limit=10`)
+  await axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${instagramToken}&limit=10`)
     .then(response => {
       return response
     })

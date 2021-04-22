@@ -49,7 +49,6 @@ const App = () => {
   }, [])
 
   return (
-    // Only render ui if the app is not currently authenticating
     <div className="App">
       <ImageContext.Provider value={instagramData}>
         <Header extra={'childProps.name'} />

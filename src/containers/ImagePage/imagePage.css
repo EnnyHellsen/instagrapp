@@ -3,16 +3,20 @@
     display: grid; 
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    grid-gap: 2rem;
 }
 
 .image-page-img {
-    width: 100%;
-    padding: 2rem;
+    width: 95%;
+    justify-self: center;
+    background-color: lightgrey;
+    border-radius: 5px;
 }
 
 .image-page-description {
     font-size: 2rem;
     padding: 2rem;
+    color: black;
 }
 
 @media screen and (max-width: 750px) {
