@@ -6,7 +6,7 @@ const airtableApiKey = process.env.AIRTABLE_API_KEY
 
 exports.handler = async function (event, context, callback) {
 
-  await axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${instagramToken}&limit=10`)
+  await axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type&access_token=${instagramToken}&limit=10`)
     .then(response => {
       return response
     })
@@ -26,6 +26,7 @@ exports.handler = async function (event, context, callback) {
             "fields": {
               "id": item.id,
               "media_url": item.media_url,
+              "media_type": item.media_type,
               "caption": item.caption,
             }
           });
