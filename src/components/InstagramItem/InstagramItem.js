@@ -1,7 +1,9 @@
 import React from "react";
 import './InstagramItem.css';
+import { Link } from 'react-router-dom'
 
 const InstagramItem = ({ data, isDoneFetchingData }) => {
+
   return (
     <div className="instagram-container" id="start">
       {data.map(item => {
@@ -12,8 +14,8 @@ const InstagramItem = ({ data, isDoneFetchingData }) => {
         const captionWithoutTags = caption.slice(0, adjustLength);
 
         return (
-          <a
-            href={`/portfolio/${id}`}
+          <Link
+            to={`/portfolio/${id}`}
             key={id}
           >
             <div className="instagram-item">
@@ -34,7 +36,7 @@ const InstagramItem = ({ data, isDoneFetchingData }) => {
                 <p> {captionWithoutTags.length >= 50 ? captionWithoutTags + `..` : captionWithoutTags}</p>
               </div>
             </div>
-          </a>
+          </Link>
         )
       })}
 

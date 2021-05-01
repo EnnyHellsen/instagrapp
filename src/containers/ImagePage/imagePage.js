@@ -1,24 +1,23 @@
 import React from "react";
-import { ImageContext } from '../../App'
+import { ImageContext } from '../../App';
 import './imagePage.css';
+import { useParams } from 'react-router-dom';
 
-const ImagePage = ({ location }) => {
+const ImagePage = () => {
   const [imageData, setImageData] = React.useState({});
 
-  const imageId = location.pathname.substring(11);
+  const { id } = useParams();
   const instagramData = React.useContext(ImageContext);
 
-  console.log(imageId);
-
   React.useEffect(() => {
-    if (imageId.length > 1) {
+    if (id.length > 1) {
       instagramData.find(item => {
-        if (item.fields.id === imageId) {
+        if (item.fields.id === id) {
           setImageData(item.fields)
         }
       })
     }
-  }, [instagramData, imageId])
+  }, [instagramData, id])
 
   const position = imageData.caption ? imageData.caption.search(/#/i) : 0;
   const captionWithoutTags = imageData.caption ? imageData.caption.slice(0, position) : 'placeholder';

@@ -12,22 +12,20 @@ export default () => {
 
   return (
     <Switch>
-      <Route path="/">
+      <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/kontakt">
+      <Route exact path="/kontakt">
         <Contact />
       </Route>
-      <Route path="/om-mig">
+      <Route exact path="/om-mig">
         <About />
       </Route>
-      {
-        instagramData.length > 1 && instagramData.map(item => (
-          <Route key={item.fields.id} path={`/portfolio/${item.fields.id}`}>
-            <ImagePage />
-          </Route>
-        ))
-      }
+      {/* {
+        instagramData.length > 1 && instagramData.map(item => ( */}
+      <Route path="/portfolio/:id" children={<ImagePage />} />
+      {/* //   ))
+      // } */}
     </Switch>
   )
 };
