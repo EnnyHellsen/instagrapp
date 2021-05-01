@@ -10,14 +10,16 @@ import { ImageContext } from './App'
 export default () => {
   const instagramData = React.useContext(ImageContext);
 
+  const tempArray = [17887562093010135, 17929468396534963, 17848280003570046];
+
   return (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/kontakt" exact component={Contact} />
       <Route path="/om-mig" exact component={About} />
       {
-        instagramData.length > 1 && instagramData.map(item => (
-          <Route key={item.fields.id} path={`/portfolio/${item.fields.id}`} component={ImagePage} />
+        tempArray.length > 1 && tempArray.map(item => (
+          <Route key={item} path={`/portfolio/${item}`} component={ImagePage} />
         ))
       }
     </Switch>
