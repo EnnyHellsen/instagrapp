@@ -8,25 +8,24 @@
     grid-template-rows: 1fr max-content max-content 1fr;
 }
 
-.hero .hero-logo {
-    width: 20rem;
+.hero-logo {
+    width: 15rem;
     justify-self: center;
     align-self: center;
     margin-top: 4rem;
 }
 
-.hero h1 {
-    font-size: 9rem;
+.hero-title {
+    font-size: 12vw;
     transition: all 0.4s;
 }
 
 .hero .active {
-    /* color: rgba(0, 0, 0, 0); */
-    font-size: 7rem;
+    font-size: 9vw;
     transition: all 0.4s;
 }
 
-.hero h1, .hero h4, .hero p {
+.hero-title, .hero h4, .hero p {
     color: black;
     font-family: "Open Sans", sans-serif;
     font-weight: 200;
@@ -53,3 +52,15 @@
     height: 5rem;
     transition: height 0.2s;
 }
+
+@media screen and (min-width: 700px) {
+    .hero-logo {
+        width: 20rem;
+    }
+    .hero-title {
+        font-size: 8rem;
+    }
+    .hero .active {
+        font-size: 6.5rem;
+    }
+  }
