@@ -1,7 +1,7 @@
 .image-page-container {
     padding: 7rem 2rem 0 2rem;
     display: grid; 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     grid-gap: 2rem;
 }
@@ -19,8 +19,8 @@
     color: black;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (min-width: var(--tablet-width)) {
     .image-page-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }

@@ -41,7 +41,7 @@
 }
 
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: var(--mobile-width)) {
     .header a {
         font-size: 2.2rem;
     }

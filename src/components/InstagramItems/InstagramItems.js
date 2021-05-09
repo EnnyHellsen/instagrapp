@@ -1,5 +1,5 @@
 import React from "react";
-import './InstagramItem.css';
+import './InstagramItems.css';
 import { Link } from 'react-router-dom'
 
 const InstagramItem = ({ data, isDoneFetchingData }) => {

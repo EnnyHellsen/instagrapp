@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import InstagramItem from "../../components/InstagramItem";
+import InstagramItems from "../../components/InstagramItems";
 import Hero from "../../components/Hero";
 import { ImageContext } from '../../App'
 
@@ -14,7 +14,7 @@ const Home = () => {
       <div className="Home">
         <div className="lander">
           {/* {isLoading && <h1>Loading content..</h1>} */}
-          <InstagramItem data={instagramData} isDoneFetchingData={true} />
+          <InstagramItems data={instagramData} isDoneFetchingData={true} />
         </div>
       </div>
     </div>

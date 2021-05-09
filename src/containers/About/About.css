@@ -46,7 +46,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: var(--mobile-width)) {
     .about {
         display: grid;
         grid-template-columns: 1.5fr 1fr; 

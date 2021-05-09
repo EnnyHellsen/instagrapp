@@ -53,7 +53,7 @@
     transition: height 0.2s;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: var(--tablet-width)) {
     .hero-logo {
         width: 20rem;
     }
