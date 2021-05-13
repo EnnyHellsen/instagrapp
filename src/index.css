@@ -1,12 +1,15 @@
 /* CSS variables  */
 
 :root {
-  --tablet-width: 700px;
-  --mobile-width: 400px;
+  /* put css variables here */
 }
 
 
 /* Main CSS settings */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;

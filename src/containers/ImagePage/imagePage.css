@@ -19,7 +19,7 @@
     color: black;
 }
 
-@media screen and (min-width: var(--tablet-width)) {
+@media screen and (min-width: 700px) {
     .image-page-container {
         grid-template-columns: 1fr 1fr;
     }

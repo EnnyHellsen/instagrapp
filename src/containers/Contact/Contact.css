@@ -32,12 +32,15 @@
     text-align: left;
 }
 
-@media only screen and (min-width: var(--tablet-width)) {
+@media only screen and (min-width: 700px) {
     .contact-container {
         grid-template-columns: 1fr 1fr;
+        grid-column-gap: 3rem;
     }
-
     .contact-image {
         height: 400px;
+    }
+    .contact-info {
+        justify-self: center;
     }
 }
