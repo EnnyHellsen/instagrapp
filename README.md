@@ -18,6 +18,12 @@ https://docs.netlify.com/functions/overview/#manage-your-serverless-functions
 
 ## Run app
 
+This app is using npm as package manager, start with installing all npm dependencies:
+
+```bash
+npm install
+```
+
 To start the server and load netlify functions, use the netlify-cli:
 
 ```bash
@@ -32,11 +38,6 @@ netlify dev
 
 - Only save unique images to Airtable 
 - Performance 
-- Mobile responsive design
-- Animation for hero string
 - Lazy load images 
 - Sort portfolio images into two categories
-- CSS color variables
 - Implement styled components or SASS
-
-
