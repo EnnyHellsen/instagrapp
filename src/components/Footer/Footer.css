@@ -2,14 +2,15 @@
     display: grid;
     font-family: "Open Sans", sans-serif;
     font-weight: 200;
-    background: linear-gradient(130deg, #b46d6d, #5a61ad);
+    background: linear-gradient(130deg, var(--pink), var(--blue));
     color: white;
+    text-align: center;
 }
 
 .footer-top {
-    background-color: #f1eef2;
+    background-color: var(--soft-white);
     padding: 3rem 0 0.5rem 0;
-    color: black !important;
+    color: black;
 }
 
 .instagram-logo {

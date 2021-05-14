@@ -19,16 +19,17 @@
 
 .contact-text-box {
     text-align: left;
+    padding-bottom: 1rem;
 }
 
 .contact-headline {
-    font-size: 6rem;
+    font-size: 3rem;
     padding-bottom: 2rem;
     margin: 0;
 }
 
 .contact-info {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: left;
 }
 
@@ -42,5 +43,9 @@
     }
     .contact-info {
         justify-self: center;
+        font-size: 2.5rem;
+    }
+    .contact-headline {
+        font-size: 6rem;
     }
 }

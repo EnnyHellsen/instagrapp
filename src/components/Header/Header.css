@@ -18,7 +18,7 @@
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(130deg, #b46d6d, #4086be);
+    background: linear-gradient(130deg, var(--pink), var(--blue));
     z-index: 99;
 }
 

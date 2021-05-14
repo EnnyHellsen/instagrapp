@@ -1,5 +1,5 @@
 body {
-    background-color: #f1eef2;
+    background-color: var(--soft-white);
 }
 .Home .lander h1 {
     font-family: "Open Sans", sans-serif;
