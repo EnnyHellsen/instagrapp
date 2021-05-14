@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./About.css";
-import Portrait from './portrait.jpg'
+import Portrait from './../../assets/images/portrait.jpg'
 
 export default class About extends Component {
   render() {

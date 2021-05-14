@@ -1,7 +1,7 @@
 import React from "react";
 import "./Hero.css";
-import chevron from './chevron.svg';
-import logo from './nora-logga-transparent.png';
+import chevron from './../../assets/images/chevron.svg';
+import logo from './../../assets/images/nora-logga-transparent.png';
 
 const Hero = () => {
   const [activePosition, setActivePosition] = React.useState(true);
